@@ -216,7 +216,7 @@ jobs:
         run: docker-compose exec -T php composer require oxid-esales/apex-theme:dev-b-7.1.x --with-all-dependencies
 
       - name: Install dependencies
-        run: docker-compose exec -T php composer require oxid-esales/tests-deprecated-ce:dev-b-7.1.x --with-all-dependencies
+        run: docker-compose exec -T php composer require oxid-esales/tests-deprecated-ce:dev-b-7.1.x-phpunit10-OXDEV-7513 --with-all-dependencies
 
       - name: Copy config file
         run: cp source/vendor/oxid-esales/testing-library/test_config.yml.dist source/test_config.yml
