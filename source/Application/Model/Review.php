@@ -146,7 +146,7 @@ class Review extends BaseModel
 
             $reviewText = (string)$review->oxreviews__oxtext->value;
             $review->oxreviews__oxtext->setValue(
-                $this->isFieldValueHtmlEcaped() ? $this->insertHtmlLineBreaks($reviewText) : $reviewText,
+                $reviewText,
                 Field::T_RAW
             );
         }
@@ -185,11 +185,6 @@ class Review extends BaseModel
     {
         return ContainerFacade::get(UserReviewAndRatingBridgeInterface::class)
             ->getReviewAndRatingList($userId);
-    }
-
-    private function isFieldValueHtmlEcaped(): bool
-    {
-        return !ContainerFacade::getParameter('oxid_esales.templating.engine_autoescapes_html');
     }
 
     private function insertHtmlLineBreaks(string $text): string
