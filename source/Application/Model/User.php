@@ -1238,6 +1238,11 @@ class User extends \OxidEsales\Eshop\Core\Model\BaseModel
         $this->checkValues($sUser, $sPassword, $sPassword2, $aInvAddress, $aDelAddress);
         // input data is fine - lets save updated user info
 
+        if (Registry::getConfig()->getConfigParam('blPsLoginEnabled'))
+        {
+            $aInvAddress['oxuser__oxactive'] = 0;
+        }
+
         $this->assign($aInvAddress);
 
         $this->onChangeUserData($aInvAddress);
