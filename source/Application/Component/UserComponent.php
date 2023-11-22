@@ -15,8 +15,8 @@ use OxidEsales\Eshop\Core\Form\FormFieldsTrimmer;
 use OxidEsales\Eshop\Core\Form\UpdatableFieldsConstructor;
 use Exception;
 use OxidEsales\Eshop\Core\Contract\AbstractUpdatableFields;
-use OxidEsales\Eshop\Application\Model\User\UserUpdatableFields;
 use OxidEsales\Eshop\Application\Model\User\UserShippingAddressUpdatableFields;
+use OxidEsales\Eshop\Application\Model\User\UserInvoiceAddressUpdatableFields;
 use OxidEsales\EshopCommunity\Application\Model\User;
 
 // defining login/logout states
@@ -434,7 +434,7 @@ class UserComponent extends \OxidEsales\Eshop\Core\Controller\BaseController
 
         $aInvAdress = Registry::getRequest()->getRequestParameter('invadr');
 
-        $aInvAdress = $this->cleanAddress($aInvAdress, oxNew(UserUpdatableFields::class));
+        $aInvAdress = $this->cleanAddress($aInvAdress, oxNew(UserInvoiceAddressUpdatableFields::class));
         $aInvAdress = $this->trimAddress($aInvAdress);
 
         $aDelAdress = $this->getDelAddressData();
@@ -462,6 +462,7 @@ class UserComponent extends \OxidEsales\Eshop\Core\Controller\BaseController
                 $oUser->createUser();
                 $oUser = $this->configureUserBeforeCreation($oUser);
                 $oUser->load($oUser->getId());
+
                 $oUser->changeUserData(
                     $oUser->oxuser__oxusername->value,
                     $sPassword,
@@ -676,7 +677,7 @@ class UserComponent extends \OxidEsales\Eshop\Core\Controller\BaseController
 
         // if user company name, user name and additional info has special chars
         $aInvAdress = Registry::getRequest()->getRequestParameter('invadr');
-        $aInvAdress = $this->cleanAddress($aInvAdress, oxNew(UserUpdatableFields::class));
+        $aInvAdress = $this->cleanAddress($aInvAdress, oxNew(UserInvoiceAddressUpdatableFields::class));
         $aInvAdress = $this->trimAddress($aInvAdress);
 
         $sUserName = $oUser->oxuser__oxusername->value;

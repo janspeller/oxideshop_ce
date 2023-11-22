@@ -1,5 +1,10 @@
 # Change Log for OXID eShop Community Edition Core Component
 
+## v7.0.3 - unreleased
+
+### Fixed
+- Private Sales user registration 
+
 ## v7.0.2 - 2023-11-28
 
 ### Fixed

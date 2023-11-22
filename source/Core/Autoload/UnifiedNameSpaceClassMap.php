@@ -2079,6 +2079,12 @@ return [
         'isInterface'      => false,
         'isDeprecated'     => false
     ],
+    'OxidEsales\Eshop\Application\Model\User\UserInvoiceAddressUpdatableFields' => [
+        'editionClassName' => \OxidEsales\EshopCommunity\Application\Model\User\UserInvoiceAddressUpdatableFields::class,
+        'isAbstract'       => false,
+        'isInterface'      => false,
+        'isDeprecated'     => false
+    ],
     'OxidEsales\Eshop\Application\Model\User\UserUpdatableFields'                => [
         'editionClassName' => \OxidEsales\EshopCommunity\Application\Model\User\UserUpdatableFields::class,
         'isAbstract'       => false,
