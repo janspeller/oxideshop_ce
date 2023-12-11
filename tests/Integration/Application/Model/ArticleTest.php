@@ -109,8 +109,9 @@ final class ArticleTest extends IntegrationTestCase
 
         return [
             [self::$defaultTimestamp, self::$defaultTimestamp],
-            [$now->format(self::$timeFormat), self::$defaultTimestamp],
-            [$future->format(self::$timeFormat), $past->format(self::$timeFormat)]
+            [$future->format(self::$timeFormat), self::$defaultTimestamp],
+            [$future->format(self::$timeFormat), $past->format(self::$timeFormat)],
+            [self::$defaultTimestamp, $past->format(self::$timeFormat)]
         ];
     }
 }

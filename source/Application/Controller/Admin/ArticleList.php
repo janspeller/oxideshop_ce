@@ -85,6 +85,7 @@ class ArticleList extends \OxidEsales\Eshop\Application\Controller\Admin\AdminLi
 
         return "article_list";
     }
+
     /**
      * Returns array of fields which may be used for product data search
      *
@@ -205,7 +206,7 @@ class ArticleList extends \OxidEsales\Eshop\Application\Controller\Admin\AdminLi
                     $oStr = Str::getStr();
                     $sViewName = $tableViewNameGenerator->getViewName("oxobject2category");
                     $sInsert = "from $sTable left join {$sViewName} on {$sTable}.oxid = {$sViewName}.oxobjectid " .
-                               "where {$sViewName}.oxcatnid = " . \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->quote($sValue) . " and ";
+                        "where {$sViewName}.oxcatnid = " . \OxidEsales\Eshop\Core\DatabaseProvider::getDb()->quote($sValue) . " and ";
                     $sQ = $oStr->preg_replace("/from\s+$sTable\s+where/i", $sInsert, $sQ);
                     break;
                 // add category
@@ -299,23 +300,15 @@ class ArticleList extends \OxidEsales\Eshop\Application\Controller\Admin\AdminLi
     private function setIsActiveFieldForProductsInList(ListModel $productList): void
     {
         $useTimeCheck = Registry::getConfig()->getConfigParam('blUseTimeCheck');
-        $now = $this->getCurrentTimeAsDatabaseTimestamp();
         foreach ($productList as $key => $product) {
             $product->showActiveCheckInAdminPanel = $this->isProductAlwaysActive($product);
 
             if ($useTimeCheck) {
                 $product->hasActiveTimeRange = $this->hasProductActiveTimeRange($product);
-                $product->isActiveNow = $this->isProductActiveNow($product, $now);
+                $product->isActiveNow = $product->isProductActiveNow();
             }
             $productList[$key] = $product;
         }
-    }
-
-    private function getCurrentTimeAsDatabaseTimestamp(): string
-    {
-        return Registry::getUtilsDate()->formatDBTimestamp(
-            Registry::getUtilsDate()->getTime()
-        );
     }
 
     private function convertValueToDatabaseTimestamp(Field $field): void
@@ -334,16 +327,9 @@ class ArticleList extends \OxidEsales\Eshop\Application\Controller\Admin\AdminLi
         return !empty($product->oxarticles__oxactive->value);
     }
 
-    private function isProductActiveNow(Article $product, string $now): bool
-    {
-        return $this->hasProductActiveTimeRange($product)
-            && $product->oxarticles__oxactivefrom->value <= $now
-            && $product->oxarticles__oxactiveto->value >= $now;
-    }
-
     private function hasProductActiveTimeRange(Article $product): bool
     {
         return !Registry::getUtilsDate()->isEmptyDate($product->oxarticles__oxactivefrom->value)
-            && !Registry::getUtilsDate()->isEmptyDate($product->oxarticles__oxactiveto->value);
+            || !Registry::getUtilsDate()->isEmptyDate($product->oxarticles__oxactiveto->value);
     }
 }
