@@ -19,6 +19,7 @@
 template extension resolving is already performed in `TemplateRenderer`
 
 ### Fixed
+- There is no possibility to add stock message for a product when amount gets low. [#0004401](https://bugs.oxid-esales.com/view.php?id=4401)
 - Wrong property "_oUserData" used in ContactController [PR-918](https://github.com/OXID-eSales/oxideshop_ce/pull/918)
 - Can't use dot character for template file names
 

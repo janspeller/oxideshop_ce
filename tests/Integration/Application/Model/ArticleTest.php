@@ -113,4 +113,38 @@ final class ArticleTest extends IntegrationTestCase
             [$future->format(self::$timeFormat), $past->format(self::$timeFormat)]
         ];
     }
+
+    public static function stockStatusDataProvider(): array
+    {
+        return [
+            'product in low stock with core limit' => [5, 0.0, 10, 1],
+            'product in low stock ignoring core limit' => [11, 20.0, 10, 1],
+            'product in low stock' => [5, 10.0, 0, 1],
+            'product in stock' => [5, 0.0, 3, 0],
+            'product not in stock' => [-1, 0.0, 0, -1]
+        ];
+    }
+
+    /**
+     * @dataProvider stockStatusDataProvider
+     */
+    public function testStockStatus(
+        int $productStock,
+        float $productLowStockLimit,
+        int $coreLowStockLimit,
+        int $stockStatus
+    ): void
+    {
+        Registry::getConfig()->setConfigParam('blUseStock', true);
+        Registry::getConfig()->setConfigParam('sStockWarningLimit', $coreLowStockLimit);
+
+        $product = oxNew(Article::class);
+        $product->assign([
+            'oxarticles__oxstock' => $productStock,
+            'oxarticles__oxremindamount' => $productLowStockLimit,
+            'oxarticles__oxparentid' => ''
+        ]);
+
+        $this->assertEquals($stockStatus, $product->getStockStatus());
+    }
 }

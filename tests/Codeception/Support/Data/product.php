@@ -56,6 +56,9 @@ return [
         'OXMINDELTIME' => 0,
         'OXMAXDELTIME' => 0,
         'OXDELTIMEUNIT' => '',
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1001432' => [
         'OXID' => '1001432',
@@ -71,6 +74,9 @@ return [
         'OXVARSELECT_1' => 'L | black | material',
         'OXSUBCLASS' => 'oxarticle',
         'OXSORT' => 3002,
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1001424' => [
         'OXID' => '1001424',
@@ -86,6 +92,9 @@ return [
         'OXVARSELECT_1' => 'M | red',
         'OXSUBCLASS' => 'oxarticle',
         'OXSORT' => 2004,
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1001422' => [
         'OXID' => '1001422',
@@ -101,6 +110,9 @@ return [
         'OXVARSELECT_1' => 'M | black | material',
         'OXSUBCLASS' => 'oxarticle',
         'OXSORT' => 2002,
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1001421' => [
         'OXID' => '1001421',
@@ -116,6 +128,9 @@ return [
         'OXVARSELECT_1' => 'M | black | lether',
         'OXSUBCLASS' => 'oxarticle',
         'OXSORT' => 2001,
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1001411' => [
         'OXID' => '1001411',
@@ -131,6 +146,9 @@ return [
         'OXVARSELECT_1' => 'S | black | lether',
         'OXSUBCLASS' => 'oxarticle',
         'OXSORT' => 1001,
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1001413' => [
         'OXID' => '1001413',
@@ -146,6 +164,9 @@ return [
         'OXVARSELECT_1' => 'S | white',
         'OXSUBCLASS' => 'oxarticle',
         'OXSORT' => 1003,
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1001412' => [
         'OXID' => '1001412',
@@ -161,6 +182,9 @@ return [
         'OXVARSELECT_1' => 'S | black | material',
         'OXSUBCLASS' => 'oxarticle',
         'OXSORT' => 1002,
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1001434' => [
         'OXID' => '1001434',
@@ -176,6 +200,9 @@ return [
         'OXVARSELECT_1' => 'L | red',
         'OXSUBCLASS' => 'oxarticle',
         'OXSORT' => 3004,
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1001423' => [
         'OXID' => '1001423',
@@ -191,6 +218,9 @@ return [
         'OXVARSELECT_1' => 'M | white',
         'OXSUBCLASS' => 'oxarticle',
         'OXSORT' => 2003,
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1001414' => [
         'OXID' => '1001414',
@@ -206,6 +236,9 @@ return [
         'OXVARSELECT_1' => 'S | red',
         'OXSUBCLASS' => 'oxarticle',
         'OXSORT' => 1004,
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1001431' => [
         'OXID' => '1001431',
@@ -221,6 +254,9 @@ return [
         'OXVARSELECT_1' => 'L | black | lether',
         'OXSUBCLASS' => 'oxarticle',
         'OXSORT' => 3001,
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1001433' => [
         'OXID' => '1001433',
@@ -236,6 +272,9 @@ return [
         'OXVARSELECT_1' => 'L | white',
         'OXSUBCLASS' => 'oxarticle',
         'OXSORT' => 3003,
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1000' => [
         'OXID' => '1000',
@@ -285,6 +324,9 @@ return [
         'OXMINDELTIME' => 1,
         'OXMAXDELTIME' => 1,
         'OXDELTIMEUNIT' => 'DAY',
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1002' => [
         'OXID' => '1002',
@@ -334,6 +376,9 @@ return [
         'OXMINDELTIME' => 1,
         'OXMAXDELTIME' => 1,
         'OXDELTIMEUNIT' => 'MONTH',
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1002-1' => [
         'OXID' => '1002-1',
@@ -383,6 +428,9 @@ return [
         'OXMINDELTIME' => 0,
         'OXMAXDELTIME' => 0,
         'OXDELTIMEUNIT' => '',
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1002-2' => [
         'OXID' => '1002-2',
@@ -432,6 +480,9 @@ return [
         'OXMINDELTIME' => 0,
         'OXMAXDELTIME' => 0,
         'OXDELTIMEUNIT' => '',
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
     'product-1001' => [
         'OXID' => '1001',
@@ -481,5 +532,8 @@ return [
         'OXMINDELTIME' => 0,
         'OXMAXDELTIME' => 1,
         'OXDELTIMEUNIT' => 'WEEK',
+        'OXREMINDAMOUNT' => 0,
+        'OXLOWSTOCKTEXT_1' => '',
+        'OXLOWSTOCKACTIVE' => 0,
     ],
 ];

@@ -984,24 +984,19 @@ class ViewConfig extends \OxidEsales\Eshop\Core\Base
         return $sParams;
     }
 
-    /**
-     * Returns config param "blStockOnDefaultMessage" value
-     *
-     * @return string
-     */
     public function getStockOnDefaultMessage()
     {
         return Registry::getConfig()->getConfigParam('blStockOnDefaultMessage');
     }
 
-    /**
-     * Returns config param "blStockOnDefaultMessage" value
-     *
-     * @return string
-     */
     public function getStockOffDefaultMessage()
     {
         return Registry::getConfig()->getConfigParam('blStockOffDefaultMessage');
+    }
+
+    public function getStockLowDefaultMessage(): ?string
+    {
+        return Registry::getConfig()->getConfigParam('blStockLowDefaultMessage');
     }
 
     /**

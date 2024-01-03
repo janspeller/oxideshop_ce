@@ -104,6 +104,10 @@ class ArticleStock extends \OxidEsales\Eshop\Application\Controller\Admin\AdminD
             $aParams['oxarticles__oxremindactive'] = 0;
         }
 
+        if (!$oArticle->oxlowstockactive->value && !isset($aParams['oxarticles__oxlowstockactive'])) {
+            $aParams['oxarticles__oxlowstockactive'] = 0;
+        }
+
         $oArticle->assign($aParams);
 
         //tells to article to save in different language
