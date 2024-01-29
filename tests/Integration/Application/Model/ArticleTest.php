@@ -113,4 +113,76 @@ final class ArticleTest extends IntegrationTestCase
             [$future->format(self::$timeFormat), $past->format(self::$timeFormat)]
         ];
     }
+
+    public static function isProductAlwaysActiveDataProvider(): array
+    {
+        return [
+            'NULL value' => [null, false],
+            'false value' => [false, false],
+            'true value' => [true, true],
+        ];
+    }
+
+    /**
+     * @dataProvider isProductAlwaysActiveDataProvider
+     */
+    public function testIsProductAlwaysActive(?bool $active, bool $result): void
+    {
+        $product = oxNew(Article::class);
+        $product->oxarticles__oxactive = new Field($active);
+
+        $this->assertEquals($result, $product->isProductAlwaysActive());
+    }
+
+    public static function hasProductActiveTimeRangeDataProvider(): array
+    {
+        $now = new DateTimeImmutable();
+        return [
+            'Empty active From/To' => [self::$defaultTimestamp, self::$defaultTimestamp, false],
+            'Empty active From' => [self::$defaultTimestamp, $now->format(self::$timeFormat), true],
+            'Empty active To' => [$now->format(self::$timeFormat), self::$defaultTimestamp, true],
+            'With active From/to' => [$now->format(self::$timeFormat), $now->format(self::$timeFormat), true],
+        ];
+    }
+
+    /**
+     * @dataProvider hasProductActiveTimeRangeDataProvider
+     */
+    public function testHasProductActiveTimeRange(string $activeFrom, string $activeTo, bool $result)
+    {
+        $product = oxNew(Article::class);
+        $product->oxarticles__oxactivefrom = new Field($activeFrom);
+        $product->oxarticles__oxactiveto = new Field($activeTo);
+
+        $this->assertEquals($result, $product->hasProductActiveTimeRange());
+    }
+
+    public static function isProductActiveNowDataProvider(): array
+    {
+        $now = new DateTimeImmutable();
+        $past = $now->modify('-1 day')->format(self::$timeFormat);
+        $future = $now->modify('+1 day')->format(self::$timeFormat);
+        return [
+            'Empty active From/To' => [self::$defaultTimestamp, self::$defaultTimestamp, false],
+            'Empty activeFrom valid activeTo' => [self::$defaultTimestamp, $future, true],
+            'Empty activeFrom invalid activeTo' => [self::$defaultTimestamp, $past, false],
+            'Empty activeTo valid activeFrom' => [$past, self::$defaultTimestamp, false],
+            'Empty activeTo invalid activeFrom' => [$future, self::$defaultTimestamp, false],
+            'With valid From/to' => [$past, $future, true],
+            'With invalid From/to' => [$future, $past, false],
+        ];
+    }
+
+    /**
+     * @dataProvider isProductActiveNowDataProvider
+     */
+    public function testIsProductActiveNow(string $activeFrom, string $activeTo, bool $result)
+    {
+        $now = new DateTimeImmutable();
+        $product = oxNew(Article::class);
+        $product->oxarticles__oxactivefrom = new Field($activeFrom);
+        $product->oxarticles__oxactiveto = new Field($activeTo);
+
+        $this->assertEquals($result, $product->isProductActiveNow($now->format(self::$timeFormat)));
+    }
 }
